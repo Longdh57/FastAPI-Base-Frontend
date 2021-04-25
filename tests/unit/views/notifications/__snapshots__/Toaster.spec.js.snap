@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toaster.vue renders correctly 1`] = `
+<ccard-stub>
+  <ccardheader-stub>
+    <div>
+      <cicon-stub
+        name="cil-task"
+      />
+       Toasts
+      
+      <a
+        class="badge badge-danger ml-1"
+        href="https://coreui.io/pro/vue/"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        
+        CoreUI Pro
+      
+      </a>
+       
+      <div
+        class="card-header-actions"
+      >
+        <a
+          class="card-header-action"
+          href="https://coreui.io/vue/docs/components/toast"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          <small
+            class="text-muted"
+          >
+            docs
+          </small>
+        </a>
+      </div>
+    </div>
+  </ccardheader-stub>
+   
+  <crow-stub
+    gutters="true"
+    tag="div"
+  >
+    <ccol-stub
+      lg="6"
+      sm="12"
+      tag="div"
+    >
+      <cform-stub
+        class="m-4"
+      >
+        <h5>
+          Add toast with following props:
+        </h5>
+         
+        <cinputcheckbox-stub
+          checked="true"
+          class="my-2 mt-4"
+          custom="true"
+          label="Autohide of the toast"
+        />
+         
+        <cinput-stub
+          class="my-2"
+          label="Time to autohide"
+          lazy="true"
+          type="number"
+          value="5000"
+        />
+         
+        <cselect-stub
+          class="my-2"
+          custom="true"
+          label="Position"
+          options="static,top-left,top-center,top-right,top-full,bottom-left,bottom-center,bottom-right,bottom-full"
+          value="top-right"
+        />
+         
+        <cinputcheckbox-stub
+          checked="true"
+          class="my-2"
+          custom="true"
+          label="fade"
+        />
+         
+        <cinputcheckbox-stub
+          checked="true"
+          class="my-2"
+          custom="true"
+          label="closeButton"
+        />
+         
+        <cbutton-stub
+          activeclass="router-link-active"
+          class="mr-1 w-25"
+          color="success"
+          event="click"
+          exactactiveclass="router-link-exact-active"
+          routertag="a"
+          target="_self"
+          type="button"
+        >
+          
+          Add toast
+        
+        </cbutton-stub>
+      </cform-stub>
+    </ccol-stub>
+     
+    <ccol-stub
+      lg="6"
+      sm="12"
+      tag="div"
+    >
+      <div
+        class="m-4"
+      >
+        <ctoaster-stub
+          closebutton="true"
+          fade="true"
+          position="static"
+        >
+          <ctoast-stub
+            closebutton="true"
+            fade="true"
+            header="Toast title"
+            position="static"
+            show="true"
+          >
+            
+              This is a toast in static positioned toaster number 1.
+            
+          </ctoast-stub>
+          <ctoast-stub
+            closebutton="true"
+            fade="true"
+            header="Toast title"
+            position="static"
+            show="true"
+          >
+            
+              This is a toast in static positioned toaster number 2.
+            
+          </ctoast-stub>
+        </ctoaster-stub>
+        <ctoaster-stub
+          closebutton="true"
+          fade="true"
+          position="top-right"
+        >
+          <ctoast-stub
+            autohide="3000"
+            closebutton="true"
+            fade="true"
+            header="Toast title"
+            position="top-right"
+            show="true"
+          >
+            
+              This is a toast in top-right positioned toaster number 1.
+            
+          </ctoast-stub>
+        </ctoaster-stub>
+      </div>
+    </ccol-stub>
+  </crow-stub>
+</ccard-stub>
+`;

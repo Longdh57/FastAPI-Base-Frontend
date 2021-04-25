@@ -1,0 +1,357 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Compose.vue renders correctly 1`] = `
+<div>
+  <p
+    class="text-center"
+  >
+    New Message
+  </p>
+   
+  <form>
+    <div
+      class="form-row mb-3"
+    >
+      <label
+        class="col-2 col-sm-1 col-form-label"
+        for="to"
+      >
+        To:
+      </label>
+       
+      <ccol-stub
+        cols="12"
+        sm="11"
+        tag="div"
+      >
+        <input
+          class="form-control"
+          id="to"
+          placeholder="Type email"
+          type="email"
+        />
+      </ccol-stub>
+    </div>
+     
+    <div
+      class="form-row mb-3"
+    >
+      <label
+        class="col-2 col-sm-1 col-form-label"
+        for="cc"
+      >
+        CC:
+      </label>
+       
+      <ccol-stub
+        cols="12"
+        sm="11"
+        tag="div"
+      >
+        <input
+          class="form-control"
+          id="cc"
+          placeholder="Type email"
+          type="email"
+        />
+      </ccol-stub>
+    </div>
+     
+    <div
+      class="form-row mb-3"
+    >
+      <label
+        class="col-2 col-sm-1 col-form-label"
+        for="bcc"
+      >
+        BCC:
+      </label>
+       
+      <ccol-stub
+        cols="12"
+        sm="11"
+        tag="div"
+      >
+        <input
+          class="form-control"
+          id="bcc"
+          placeholder="Type email"
+          type="email"
+        />
+      </ccol-stub>
+    </div>
+  </form>
+   
+  <crow-stub
+    gutters="true"
+    tag="div"
+  >
+    <ccol-stub
+      class="ml-auto"
+      sm="11"
+      tag="div"
+    >
+      <div
+        class="toolbar"
+        role="toolbar"
+      >
+        <div
+          class="btn-group mr-1"
+        >
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-bold"
+            />
+          </cbutton-stub>
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-italic"
+            />
+          </cbutton-stub>
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-underline"
+            />
+          </cbutton-stub>
+        </div>
+         
+        <div
+          class="btn-group mr-1"
+        >
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-align-left"
+            />
+          </cbutton-stub>
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-align-right"
+            />
+          </cbutton-stub>
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-align-center"
+            />
+          </cbutton-stub>
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-justify-center"
+            />
+          </cbutton-stub>
+        </div>
+         
+        <div
+          class="btn-group mr-1"
+        >
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-indent-increase"
+            />
+          </cbutton-stub>
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-indent-decrease"
+            />
+          </cbutton-stub>
+        </div>
+         
+        <div
+          class="btn-group mr-1"
+        >
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-list"
+            />
+          </cbutton-stub>
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="light"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            <cicon-stub
+              name="cil-list-numbered"
+            />
+          </cbutton-stub>
+        </div>
+         
+        <cbutton-stub
+          activeclass="router-link-active"
+          class="mr-1"
+          color="light"
+          event="click"
+          exactactiveclass="router-link-exact-active"
+          routertag="a"
+          target="_self"
+          type="button"
+        >
+          <cicon-stub
+            name="cil-trash"
+          />
+        </cbutton-stub>
+         
+        <cbutton-stub
+          activeclass="router-link-active"
+          color="light"
+          event="click"
+          exactactiveclass="router-link-exact-active"
+          routertag="a"
+          target="_self"
+          type="button"
+        >
+          <cicon-stub
+            name="cil-paperclip"
+          />
+        </cbutton-stub>
+         
+        <labeldropdown-stub />
+      </div>
+       
+      <div
+        class="form-group mt-4"
+      >
+        <textarea
+          class="form-control"
+          id="message"
+          name="body"
+          placeholder="Click here to reply"
+          rows="12"
+        />
+      </div>
+       
+      <div
+        class="form-group"
+      >
+        <cbutton-stub
+          activeclass="router-link-active"
+          class="mr-1"
+          color="success"
+          event="click"
+          exactactiveclass="router-link-exact-active"
+          routertag="a"
+          target="_self"
+          type="submit"
+        >
+          Send
+        </cbutton-stub>
+         
+        <cbutton-stub
+          activeclass="router-link-active"
+          class="mr-1"
+          color="light"
+          event="click"
+          exactactiveclass="router-link-exact-active"
+          routertag="a"
+          target="_self"
+          type="submit"
+        >
+          Draft
+        </cbutton-stub>
+         
+        <cbutton-stub
+          activeclass="router-link-active"
+          class="mr-1"
+          color="danger"
+          event="click"
+          exactactiveclass="router-link-exact-active"
+          routertag="a"
+          target="_self"
+          type="submit"
+        >
+          Discard
+        </cbutton-stub>
+      </div>
+    </ccol-stub>
+  </crow-stub>
+</div>
+`;

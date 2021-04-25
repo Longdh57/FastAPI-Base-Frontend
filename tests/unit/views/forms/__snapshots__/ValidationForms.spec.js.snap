@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidationForms.vue renders correctly 1`] = `
+<ccard-stub>
+  <ccardheader-stub>
+    <cicon-stub
+      name="cil-notes"
+    />
+     Form Validation
+    
+    <a
+      class="badge badge-danger"
+      href="https://coreui.io/pro/vue/"
+    >
+      CoreUI Pro
+    </a>
+     
+    <div
+      class="card-header-actions"
+    >
+      <a
+        class="card-header-action"
+        href="https://github.com/vuelidate/vuelidate"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        <small
+          class="text-muted"
+        >
+          docs
+        </small>
+      </a>
+    </div>
+  </ccardheader-stub>
+   
+  <ccardbody-stub>
+    <clink-stub
+      activeclass="router-link-active"
+      event="click"
+      exactactiveclass="router-link-exact-active"
+      href="https://github.com/vuelidate/vuelidate"
+      rel="noreferrer noopener"
+      routertag="a"
+      target="_blank"
+    >
+      
+      Vuelidate
+    
+    </clink-stub>
+     
+    provides 
+    <cite>
+      Simple, lightweight model-based validation for Vue.js. 
+    </cite>
+    
+    In this view Vuelidate features are integrated with CoreUI Vue form components.
+    
+    <hr />
+     
+    <crow-stub
+      gutters="true"
+      tag="div"
+    >
+      <ccol-stub
+        lg="6"
+        tag="div"
+      >
+        <cform-stub>
+          <cinput-stub
+            autocomplete="given-name"
+            invalidfeedback="This is a required field and must be at least 2 characters"
+            label="First Name"
+            placeholder="First Name"
+            type="text"
+            value=""
+          />
+           
+          <cinput-stub
+            autocomplete="family-name"
+            invalidfeedback="This is a required field and must be at least 1 character"
+            label="Last Name"
+            placeholder="Last Name"
+            type="text"
+            value=""
+          />
+           
+          <cinput-stub
+            autocomplete="username"
+            invalidfeedback="This is a required field and must be at least 5 character"
+            label="User Name"
+            placeholder="User Name"
+            type="text"
+            value=""
+          />
+           
+          <cinput-stub
+            autocomplete="email"
+            invalidfeedback="This is a required field and must be valid e-mail address"
+            label="Email"
+            placeholder="Email"
+            type="email"
+            value=""
+          />
+           
+          <crow-stub
+            gutters="true"
+            tag="div"
+          >
+            <ccol-stub
+              md="6"
+              tag="div"
+            >
+              <cinput-stub
+                autocomplete="new-password"
+                invalidfeedback="Required password containing at least: number, uppercase and lowercase letter, 8 characters"
+                label="Password"
+                lazy="400"
+                placeholder="Password"
+                type="password"
+                value=""
+              />
+            </ccol-stub>
+             
+            <ccol-stub
+              md="6"
+              tag="div"
+            >
+              <cinput-stub
+                autocomplete="new-password"
+                invalidfeedback="Passwords must match"
+                label="Confirm Password"
+                lazy="400"
+                placeholder="Password"
+                type="password"
+                value=""
+              />
+            </ccol-stub>
+          </crow-stub>
+           
+          <cinputcheckbox-stub
+            class="mb-4"
+            custom="true"
+            invalidfeedback="You must accept before submitting"
+            label="I accept the terms of use"
+          />
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            color="primary"
+            disabled="true"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            
+            Submit
+          
+          </cbutton-stub>
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            class="ml-1"
+            color="success"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            
+            Validate
+          
+          </cbutton-stub>
+           
+          <cbutton-stub
+            activeclass="router-link-active"
+            class="ml-1"
+            color="danger"
+            disabled="true"
+            event="click"
+            exactactiveclass="router-link-exact-active"
+            routertag="a"
+            target="_self"
+            type="button"
+          >
+            
+            Reset
+          
+          </cbutton-stub>
+        </cform-stub>
+         
+        <br />
+      </ccol-stub>
+       
+      <ccol-stub
+        lg="6"
+        tag="div"
+      >
+        <ccard-stub
+          class="bg-secondary"
+        >
+          <pre>
+            {
+    "firstName": "",
+    "lastName": "",
+    "userName": "",
+    "email": "",
+    "password": "",
+    "confirmPassword": "",
+    "accept": false
+}
+          </pre>
+        </ccard-stub>
+      </ccol-stub>
+    </crow-stub>
+  </ccardbody-stub>
+</ccard-stub>
+`;
