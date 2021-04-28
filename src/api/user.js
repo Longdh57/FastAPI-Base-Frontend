@@ -31,10 +31,11 @@ export function updateCurrentUser(data) {
   })
 }
 
-export function getListUsers() {
+export function getListUsers(query) {
   return request({
     url: '/users',
-    method: 'get'
+    method: 'get',
+    params: query
   })
 }
 

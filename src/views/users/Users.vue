@@ -9,23 +9,29 @@
           <CDataTable
             hover
             striped
-            :items="items"
+            :items="listUsers"
             :fields="fields"
-            :items-per-page="10"
             clickable-rows
-            :active-page="activePage"
+            :items-per-page-select="{'label': 'Size', 'values': [3, 10, 20, 100]}"
+            :items-per-page.sync="filterSearch.page_size"
+            @pagination-change="pageSizeChange"
+            :pagination="false"
             @row-clicked="rowClicked"
-            :pagination="{ doubleArrows: true, align: 'end'}"
-            @page-change="pageChange"
           >
-            <template #status="data">
+            <template #role="data">
               <td>
-                <CBadge :color="getBadge(data.item.status)">
-                  {{data.item.status}}
+                <CBadge :color="getBadge(data.item.role)">
+                  {{data.item.role}}
                 </CBadge>
               </td>
             </template>
           </CDataTable>
+          <CPagination
+            :activePage.sync="filterSearch.page"
+            :pages="totalPages"
+            align="end"
+            @update-active-page="updatePage"
+          />
         </CCardBody>
       </CCard>
     </CCol>
@@ -33,19 +39,26 @@
 </template>
 
 <script>
-import usersData from './UsersData'
+import {getListUsers} from "@/api/user";
 export default {
   name: 'Users',
   data () {
     return {
-      items: usersData,
       fields: [
-        { key: 'username', label: 'Name', _classes: 'font-weight-bold' },
-        { key: 'registered' },
-        { key: 'role' },
-        { key: 'status' }
+        { key: 'email', label: 'Email', _classes: 'font-weight-bold' },
+        { key: 'full_name' },
+        { key: 'is_active', label: 'Active' },
+        { key: 'last_login' },
+        { key: 'role' }
       ],
-      activePage: 1
+      activePage: 1,
+      listUsers: null,
+      total: 0,
+      totalPages: 0,
+      filterSearch: {
+        page: 1,
+        page_size: 3
+      }
     }
   },
   watch: {
@@ -56,24 +69,43 @@ export default {
           this.activePage = Number(route.query.page)
         }
       }
-    }
+    },
+    filterSearch: function (val) {
+      console.log(val)
+    },
+  },
+  created() {
+    this.getList()
   },
   methods: {
-    getBadge (status) {
-      switch (status) {
-        case 'Active': return 'success'
-        case 'Inactive': return 'secondary'
-        case 'Pending': return 'warning'
-        case 'Banned': return 'danger'
+    getBadge (role) {
+      switch (role) {
+        case 'admin': return 'success'
+        case 'guest': return 'secondary'
         default: 'primary'
       }
     },
     rowClicked (item, index) {
-      this.$router.push({path: `users/${index + 1}`})
+      console.log(`${index + 1}`)
     },
     pageChange (val) {
       this.$router.push({ query: { page: val }})
-    }
+    },
+    pageSizeChange() {
+      console.log('xxx')
+      console.log(this.filterSearch.page_size)
+    },
+    updatePage(e) {
+      console.log('updatePage' + e)
+    },
+    getList() {
+      getListUsers(this.filterSearch).then(response => {
+        const { data, metadata } = response
+        this.listUsers = data
+        this.total = metadata.total_items
+        this.totalPages = ((this.total - 1) / this.filterSearch.page_size) + 1
+      })
+    },
   }
 }
 </script>
