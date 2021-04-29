@@ -96,6 +96,7 @@ import {
   cilPencil,
   cilPeople,
   cilPhone,
+  cilPlus,
   cilPrint,
   cilPuzzle,
   cilSave,
@@ -118,7 +119,8 @@ import {
   cilUserFollow,
   cilUserUnfollow,
   cilXCircle,
-  cilWarning
+  cilWarning,
+  cilZoom
 } from '@coreui/icons'
 import { logo } from './logo'
 
@@ -187,6 +189,7 @@ export const iconsSet = Object.assign({}, { logo }, {
   cilPencil,
   cilPeople,
   cilPhone,
+  cilPlus,
   cilPrint,
   cilPuzzle,
   cilSave,
@@ -209,7 +212,8 @@ export const iconsSet = Object.assign({}, { logo }, {
   cilUserFollow,
   cilUserUnfollow,
   cilXCircle,
-  cilWarning
+  cilWarning,
+  cilZoom
 }, {
   cifUs,
   cifBr,

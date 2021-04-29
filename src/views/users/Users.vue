@@ -4,6 +4,11 @@
       <CCard>
         <CCardHeader>
           Danh sách người dùng
+          <div class="float-right">
+            <CButton color="success" @click="handleCreate">
+              <CIcon name="cil-plus"/>&nbsp;Create
+            </CButton>
+          </div>
         </CCardHeader>
         <CCardBody>
           <CDataTable
@@ -22,6 +27,11 @@
                 <CIcon :name="(data.item.is_active) ? 'cil-check' : 'cil-x-circle'"/>
               </td>
             </template>
+            <template #last_login="data">
+              <td>
+                {{formatDate(data.item.last_login)}}
+              </td>
+            </template>
             <template #role="data">
               <td>
                 <CBadge :color="getBadge(data.item.role)">
@@ -31,7 +41,7 @@
             </template>
             <template #action="data">
               <td @click="rowClicked(data.item.id)">
-                <CIcon name="cil-pencil"/>
+                <CIcon name="cil-zoom"/>
               </td>
             </template>
           </CDataTable>
@@ -48,11 +58,10 @@
 
 <script>
 import {getListUsers} from "@/api/user"
-import { flagSet, freeSet } from '@coreui/icons'
+import {formatDate} from "@/utils/format-date"
+
 export default {
   name: 'Users',
-  flagSet,
-  freeSet,
   data () {
     return {
       fields: [
@@ -101,7 +110,7 @@ export default {
       }
     },
     rowClicked (id) {
-      console.log(id)
+      this.$router.push({path: `/users/${id}`})
     },
     pageChange (val) {
       this.$router.push({ query: { page: val }})
@@ -117,6 +126,10 @@ export default {
         this.totalPages = ((this.total - 1) / this.filterSearch.page_size) + 1
       })
     },
+    formatDate: formatDate,
+    handleCreate() {
+      this.$router.push({path: '/users/create'})
+    }
   }
 }
 </script>

@@ -1,18 +1,41 @@
 <template>
   <CRow>
-    <CCol col="12" lg="6">
+    <CCol col="12" lg="12">
       <CCard>
         <CCardHeader>
-          User id:  {{ $route.params.id }}
+          Thông tin người dùng
         </CCardHeader>
         <CCardBody>
-          <CDataTable
-            striped
-            small
-            fixed
-            :items="visibleData"
-            :fields="fields"
-          />
+          <CRow>
+            <CCol>
+              <table class="table table-clear" v-if="userInfo">
+                <tbody>
+                <tr>
+                  <td class="left"><strong>Full Name</strong></td>
+                  <td class="right">{{ userInfo.full_name }}</td>
+                </tr>
+                <tr>
+                  <td class="left"><strong>Email</strong></td>
+                  <td class="right">{{ userInfo.email }}</td>
+                </tr>
+                <tr>
+                  <td class="left"><strong>Active</strong></td>
+                  <td class="right">
+                    <CIcon :name="(userInfo.is_active) ? 'cil-check' : 'cil-x-circle'"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="left"><strong>Last login</strong></td>
+                  <td class="right">{{ formatDate(userInfo.last_login) }}</td>
+                </tr>
+                <tr>
+                  <td class="left"><strong>Role</strong></td>
+                  <td class="right">{{ userInfo.role }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </CCol>
+          </CRow>
         </CCardBody>
         <CCardFooter>
           <CButton color="primary" @click="goBack">Back</CButton>
@@ -23,43 +46,29 @@
 </template>
 
 <script>
-import usersData from './UsersData'
+import {getDetailUser} from "@/api/user"
+import { formatDate } from '@/utils/format-date'
 export default {
   name: 'User',
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      vm.usersOpened = from.fullPath.includes('users')
-    })
-  },
   data () {
     return {
-      usersOpened: null
+      user_id: this.$route.params.id,
+      userInfo: null
     }
   },
-  computed: {
-    fields () {
-      return [
-        { key: 'key', label: this.username, _style: 'width:150px'},
-        { key: 'value', label: '', _style: 'width:150px;' }
-      ]
-    },
-    userData () {
-      const id = this.$route.params.id
-      const user = usersData.find((user, index) => index + 1 == id)
-      const userDetails = user ? Object.entries(user) : [['id', 'Not found']]
-      return userDetails.map(([key, value]) => { return { key, value } })
-    },
-    visibleData () {
-      return this.userData.filter(param => param.key !== 'username')
-    },
-    username () {
-      return this.userData.filter(param => param.key === 'username')[0].value
-    }
+  created() {
+    this.getDetail()
   },
   methods: {
     goBack() {
       this.usersOpened ? this.$router.go(-1) : this.$router.push({path: '/users'})
-    }
+    },
+    getDetail() {
+      getDetailUser(this.user_id).then(res => {
+        this.userInfo = res.data
+      })
+    },
+    formatDate: formatDate
   }
 }
 </script>

@@ -68,7 +68,8 @@ const Register = () => import('@/views/pages/Register')
 
 // Users
 const Users = () => import('@/views/users/Users')
-const User = () => import('@/views/users/User')
+const UserDetail = () => import('@/views/users/User')
+const UserCreate = () => import('@/views/users/create/index')
 
 // Plugins
 const Draggable = () => import('@/views/plugins/Draggable')
@@ -140,12 +141,17 @@ const route = new Router({
               component: Users
             },
             {
+              path: 'create',
+              name: 'Create User',
+              component: UserCreate
+            },
+            {
               path: ':id',
               meta: {
                 label: 'User Details'
               },
               name: 'User',
-              component: User
+              component: UserDetail
             }
           ]
         },
