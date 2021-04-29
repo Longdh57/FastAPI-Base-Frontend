@@ -136,7 +136,7 @@ const route = new Router({
           children: [
             {
               path: '',
-              name: 'Users',
+              name: 'List User',
               component: Users
             },
             {

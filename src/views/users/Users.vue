@@ -12,12 +12,16 @@
             :items="listUsers"
             :fields="fields"
             clickable-rows
-            :items-per-page-select="{'label': 'Size', 'values': [3, 10, 20, 100]}"
-            :items-per-page.sync="filterSearch.page_size"
+            :items-per-page-select="{'label': 'Size', 'values': [5, 10, 20, 100]}"
+            :items-per-page="filterSearch.page_size"
             @pagination-change="pageSizeChange"
             :pagination="false"
-            @row-clicked="rowClicked"
           >
+            <template #is_active="data">
+              <td>
+                <CIcon :name="(data.item.is_active) ? 'cil-check' : 'cil-x-circle'"/>
+              </td>
+            </template>
             <template #role="data">
               <td>
                 <CBadge :color="getBadge(data.item.role)">
@@ -25,12 +29,16 @@
                 </CBadge>
               </td>
             </template>
+            <template #action="data">
+              <td @click="rowClicked(data.item.id)">
+                <CIcon name="cil-pencil"/>
+              </td>
+            </template>
           </CDataTable>
           <CPagination
             :activePage.sync="filterSearch.page"
-            :pages="totalPages"
+            :pages="Math.ceil(total / filterSearch.page_size)"
             align="end"
-            @update-active-page="updatePage"
           />
         </CCardBody>
       </CCard>
@@ -39,9 +47,12 @@
 </template>
 
 <script>
-import {getListUsers} from "@/api/user";
+import {getListUsers} from "@/api/user"
+import { flagSet, freeSet } from '@coreui/icons'
 export default {
   name: 'Users',
+  flagSet,
+  freeSet,
   data () {
     return {
       fields: [
@@ -49,7 +60,8 @@ export default {
         { key: 'full_name' },
         { key: 'is_active', label: 'Active' },
         { key: 'last_login' },
-        { key: 'role' }
+        { key: 'role' },
+        { key: 'action', label: 'Action' }
       ],
       activePage: 1,
       listUsers: null,
@@ -57,7 +69,7 @@ export default {
       totalPages: 0,
       filterSearch: {
         page: 1,
-        page_size: 3
+        page_size: 5
       }
     }
   },
@@ -70,8 +82,11 @@ export default {
         }
       }
     },
-    filterSearch: function (val) {
-      console.log(val)
+    filterSearch: {
+      deep: true,
+      handler() {
+        this.getList()
+      }
     },
   },
   created() {
@@ -85,18 +100,14 @@ export default {
         default: 'primary'
       }
     },
-    rowClicked (item, index) {
-      console.log(`${index + 1}`)
+    rowClicked (id) {
+      console.log(id)
     },
     pageChange (val) {
       this.$router.push({ query: { page: val }})
     },
-    pageSizeChange() {
-      console.log('xxx')
-      console.log(this.filterSearch.page_size)
-    },
-    updatePage(e) {
-      console.log('updatePage' + e)
+    pageSizeChange(currentSize) {
+      this.filterSearch.page_size = currentSize;
     },
     getList() {
       getListUsers(this.filterSearch).then(response => {
