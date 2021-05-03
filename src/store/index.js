@@ -71,7 +71,9 @@ const actions = {
   // User logout
   logout({commit}) {
     return new Promise((resolve) => {
-      commit('SET_TOKEN', '')
+      commit('SET_TOKEN', undefined)
+      commit('SET_ROLE', undefined)
+      commit('SET_INFORMATION', {full_name: undefined, email: undefined, last_login: undefined})
       removeToken()
       resolve()
     })
