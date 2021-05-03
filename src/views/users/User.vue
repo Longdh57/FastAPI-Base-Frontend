@@ -4,6 +4,9 @@
       <CCard>
         <CCardHeader>
           Thông tin người dùng
+          <div class="float-right">
+            <CButton color="primary" @click="goBack"><CIcon name="cil-arrow-left"/> Back</CButton>
+          </div>
         </CCardHeader>
         <CCardBody>
           <CRow>
@@ -37,9 +40,6 @@
             </CCol>
           </CRow>
         </CCardBody>
-        <CCardFooter>
-          <CButton color="primary" @click="goBack">Back</CButton>
-        </CCardFooter>
       </CCard>
     </CCol>
   </CRow>

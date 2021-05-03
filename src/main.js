@@ -1,6 +1,7 @@
 import 'core-js/stable'
 import 'babel-polyfill'
 import Vue from 'vue'
+import Notifications from 'vue-notification'
 //import CoreuiVuePro from '@coreui/vue-pro'
 import CoreuiVuePro from '../node_modules/@coreui/vue-pro/src/index.js'
 import App from './App'
@@ -12,6 +13,7 @@ import './permission'
 
 
 Vue.use(CoreuiVuePro)
+Vue.use(Notifications)
 Vue.prototype.$log = console.log.bind(console)
 
 new Vue({

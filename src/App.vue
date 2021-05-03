@@ -1,5 +1,9 @@
 <template>
-  <router-view></router-view>
+  <div>
+    <notifications :duration="2000"/>
+    <router-view/>
+  </div>
+
 </template>
 
 <script>
