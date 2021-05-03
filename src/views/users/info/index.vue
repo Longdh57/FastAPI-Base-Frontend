@@ -1,0 +1,73 @@
+<template>
+  <CRow>
+    <CCol col="12" lg="12">
+      <CCard>
+        <CCardHeader>
+          Thông tin người dùng
+          <div class="float-right">
+            <CButton color="primary" @click="goBack"><CIcon name="cil-arrow-left"/> Back</CButton>
+          </div>
+        </CCardHeader>
+        <CCardBody>
+          <CRow>
+            <CCol>
+              <table class="table table-clear" v-if="userInfo">
+                <tbody>
+                <tr>
+                  <td class="left"><strong>Full Name</strong></td>
+                  <td class="right">{{ userInfo.full_name }}</td>
+                </tr>
+                <tr>
+                  <td class="left"><strong>Email</strong></td>
+                  <td class="right">{{ userInfo.email }}</td>
+                </tr>
+                <tr>
+                  <td class="left"><strong>Active</strong></td>
+                  <td class="right">
+                    <CIcon :name="(userInfo.is_active) ? 'cil-check' : 'cil-x-circle'"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="left"><strong>Last login</strong></td>
+                  <td class="right">{{ formatDate(userInfo.last_login) }}</td>
+                </tr>
+                <tr>
+                  <td class="left"><strong>Role</strong></td>
+                  <td class="right">{{ userInfo.role }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </CCol>
+          </CRow>
+        </CCardBody>
+      </CCard>
+    </CCol>
+  </CRow>
+</template>
+
+<script>
+import {getUserInfo} from "@/api/user"
+import { formatDate } from '@/utils/format-date'
+export default {
+  name: 'UserInfo',
+  data () {
+    return {
+      userInfo: null
+    }
+  },
+  created() {
+    this.getInfo()
+  },
+  methods: {
+    goBack() {
+      this.usersOpened ? this.$router.go(-1) : this.$router.push({path: '/users'})
+    },
+    getInfo() {
+      getUserInfo().then(res => {
+        this.userInfo = res.data
+      })
+    },
+    formatDate: formatDate
+  }
+}
+</script>

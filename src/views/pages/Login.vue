@@ -47,15 +47,6 @@
         </CCol>
       </CRow>
     </CContainer>
-
-    <CToaster :autohide="1000">
-      <CToast
-        :show.sync="toastProp.showToast"
-        header="Thông báo"
-      >
-        {{ toastProp.toastMess}}
-      </CToast>
-    </CToaster>
   </div>
 </template>
 
@@ -69,11 +60,7 @@ export default {
     return {
       loginForm: {
         username: 'long.dh@teko.vn',
-        password: 'secret123'
-      },
-      toastProp: {
-        showToast: true,
-        toastMess: 'Hi bạn'
+        password: 'Longbn@347'
       },
       otherQuery: {}
     }
@@ -117,25 +104,26 @@ export default {
       return !(field.$invalid || field.$model === '')
     },
 
-    showToast(message) {
-      this.toastProp = {
-        showToast: true,
-        toastMess: message
-      }
-    },
-
     handleLogin() {
       this.$v.$touch()
       if (this.isValid) {
         this.$store.dispatch('login', this.loginForm)
           .then(async () => {
+            this.$notify({
+              type: 'success',
+              title: 'Success',
+              text: 'Đăng nhập thành công!'
+            })
             this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
           })
           .catch(() => {
-            this.showToast('Tên đăng nhập hoặc mật khẩu không đúng')
+            this.$notify({
+              type: 'error',
+              title: 'Lỗi',
+              text: 'Đăng nhập thất bại!'
+            })
           })
       } else {
-        console.log('error submit!!')
         return false
       }
     },

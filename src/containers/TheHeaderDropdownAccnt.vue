@@ -22,11 +22,11 @@
     >
       <strong>Settings</strong>
     </CDropdownHeader>
-    <CDropdownItem>
+    <CDropdownItem @click="userInfoHandle">
       <CIcon name="cil-user" /> Profile
     </CDropdownItem>
-    <CDropdownItem>
-      <CIcon name="cil-settings" /> Settings
+    <CDropdownItem @click="changePasswordHandle">
+      <CIcon name="cil-settings" /> Change Password
     </CDropdownItem>
     <CDropdownDivider/>
     <CDropdownItem @click="logout">
@@ -48,6 +48,12 @@ export default {
       await this.$store.dispatch('logout')
       await this.$router.push(`/login`)
       window.localStorage.removeItem('vuex')
+    },
+    async userInfoHandle() {
+      await this.$router.push('/users/info')
+    },
+    async changePasswordHandle() {
+      await this.$router.push('/users/change-password')
     }
   }
 }

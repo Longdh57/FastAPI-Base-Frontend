@@ -70,6 +70,8 @@ const Register = () => import('@/views/pages/Register')
 const Users = () => import('@/views/users/Users')
 const UserDetail = () => import('@/views/users/User')
 const UserCreate = () => import('@/views/users/create/index')
+const UserInfo = () => import('@/views/users/info/index')
+const UserChangePassword = () => import('@/views/users/change-password/index')
 
 // Plugins
 const Draggable = () => import('@/views/plugins/Draggable')
@@ -144,6 +146,16 @@ const route = new Router({
               path: 'create',
               name: 'Create User',
               component: UserCreate
+            },
+            {
+              path: 'info',
+              name: 'User Information',
+              component: UserInfo
+            },
+            {
+              path: 'change-password',
+              name: 'Change Password',
+              component: UserChangePassword
             },
             {
               path: ':id',
